@@ -20,7 +20,7 @@
 				<ul class="submenus">
 					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPost/">Gestión de Posts</a></li>
 					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goComments/">Gestión de Comentarios</a></li>
-					<li><a href="Admission.html">Gestión de Perfil</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPerfil/">Gestión de Perfil</a></li>
 					<li><a href="Services.html">Services</a></li>
 				</ul>
 			</nav>
@@ -29,7 +29,7 @@
 		<div>
 			<div class="body">
 				
-				<img class= "main" src= "principal.png"> 
+				<img class= "main" src= "/~Betzy/Proyecto2ProWeb/CodeIgniter/Admin.jpg"> 
 
 			</div>
 

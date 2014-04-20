@@ -49,6 +49,23 @@ class Admin_controller extends CI_Controller {
 	}
 
 
+	public function activeComments($id)
+	{
+		$this->load->model('comments_model');
+        $this->comments_model->changeState($id); 
+        $data['blog_name'] = 'My Blog';
+		$data['comments'] = $this->comments_model->getAllComments();
+		$this->load->view('commentsAdmin_view', $data);
+	}
+
+
+	public function goPerfil()
+	{
+		$data['blog_name'] = 'Mi Perfil';
+		$data['user'] = $this->entries->getUser();
+		$this->load->view('perfilAdmin_view', $data);
+	}
+
 
 	public function error() 
 	{

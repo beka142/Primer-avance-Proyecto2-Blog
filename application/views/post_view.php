@@ -21,9 +21,9 @@
 		<h1 id="titlePost"><?php echo $entries->title?></h1>
 		<p id="contentPost"><?php echo $entries->content?> <p/> 
 			
-		<div id="body">
+		<div>
 			<?php foreach ($comments as $key => $comment) : ?>
-				<div>
+				<div id="body">
 				<h2 id="contentComment"><?php echo $comment['autor'] ?></h2>	
 				<p id="contentComment">
 					<?php echo $comment['body'] ?> 

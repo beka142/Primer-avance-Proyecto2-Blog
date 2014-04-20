@@ -25,8 +25,8 @@
 					<p id="contentComment">
 						<?php echo $comment['body'] ?> 
 					</p>
-					<FORM style="float: right; " action="" method="POST" name="post">
-						<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Aceptar'>
+					<FORM style="float: right;" action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/activeComments/<?php echo $comment['id']?>" method="POST" name="post">
+						<INPUT NAME='boton' id="campo" TYPE='SUBMIT' VALUE='Aceptar'>
 					</FORM>
 				</div>
 			<?php endforeach; ?>

@@ -32,7 +32,7 @@ class Entries extends CI_Model {
 
     function getAllComments($id)
     {         
-        $sentencia = "SELECT * FROM comments WHERE id = ".$id." and estado = 'Activado'"; 
+        $sentencia = "SELECT * FROM comments WHERE id_entrie = ".$id." and estado = 'Activado'"; 
         $query = $this->db->query("$sentencia");
         return $query->result_array();
            

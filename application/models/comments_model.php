@@ -44,7 +44,18 @@ class Comments_model extends CI_Model {
            
     }
 
-    
+    function changeState($id)
+    {         
+        //$sentencia = "UPDATE comments SET estado='Activado' WHERE id = ".$id; 
+        //$query = $this->db->query("$sentencia");
+        //return $query->result_array();
+        $data = array(
+            'estado' => 'Activado',
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('comments', $data);
+           
+    }
 }
 
 
