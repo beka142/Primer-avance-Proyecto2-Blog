@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Post_controller extends CI_Controller {
+class Admin_controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,16 +17,38 @@ class Post_controller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($id)
+	public function index()
 	{
-		$data['id'] = $id;
-		$data['blog_name'] = 'The Blog';
-		$data['bio'] = 'The userss bio';
-		$data['entries'] = $this->entries->getIdPost($id);
-		$data['comments'] = $this->entries->getAllComments($id);
-		$data['user'] = $this->entries->getUser();
-		$this->load->view('post_view', $data);
+		$this->load->view('admin_view');
 	}
+
+	public function goPost()
+	{
+		$data['blog_name'] = 'My Blog';
+		$data['user'] = $this->entries->getUser();
+		$this->load->view('postsAdmin_view', $data);
+	}
+
+
+	public function goComments()
+	{
+		$data['blog_name'] = 'My Blog';
+		$this->load->model('comments_model');
+		$data['comments'] = $this->comments_model->getAllComments();
+		$this->load->view('commentsAdmin_view', $data);
+	}
+
+
+	public function addPost()
+	{
+		$title = $this->input->post("title");
+		$contenido = $this->input->post("content");
+        $this->entries->insertPost($title,$contenido);
+        $this->load->view('prueba');       
+
+	}
+
+
 
 	public function error() 
 	{

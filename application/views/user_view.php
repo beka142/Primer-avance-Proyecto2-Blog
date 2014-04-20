@@ -2,12 +2,17 @@
 	<HEAD>
 		<meta charset="UTF-8">
 		<TITLE>Logear Administrador</TITLE>
-		<link rel="stylesheet" type="text/css" href="style/index.css">
+		<link rel="stylesheet" type="text/css" href="/~Betzy/Proyecto2ProWeb/CodeIgniter/style/index.css">
 
 	</HEAD>
-	<BODY>
+	<BODY background="/~Betzy/Proyecto2ProWeb/CodeIgniter/madera.jpg">
+		<button id="User">
+			<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/"> 
+				Inicio
+			</a> 
+		</button >
 
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/validarUser_controller/index/" method="post">
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/index/" method="POST" name="post">
 
 			
 			<br/><br/>
@@ -20,7 +25,7 @@
 					<tr>
 						<TD class="bordertest">
 							Nombre usuario:
-							<input type="text" name="user_view[nombre]">
+							<input type="text" name="nombre">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -28,7 +33,7 @@
 					<tr>
 						<TD class="bordertest">
 							Contraseña:
-							<input type="text" name="user_view[contrasena]">
+							<input type="text" name="contrasena">
 							<br/><br/>
 						</TD>
 					</tr>

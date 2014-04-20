@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Comments_controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,9 +17,21 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function index($id)
 	{
-		$this->load->view('welcome_message');
+		$this->load->model('comments_model');
+		$autor = $this->input->post("autor");
+		$comentario = $this->input->post("comentario");
+        $this->comments_model->getComment($id,$autor,$comentario);
+        $this->load->view('message_comment');
+        
+
+
+	}
+
+	public function error() 
+	{
+		echo "Error 404, try again later";
 	}
 }
 

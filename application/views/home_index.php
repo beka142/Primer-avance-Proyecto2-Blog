@@ -15,13 +15,15 @@
 </button >
 <div id="container" style="height: 800px;">
 	<h1 class="title">Welcome to <?php echo $blog_name; ?></h1>
-	<div id="body" >
+	<div>
 		<?php foreach ($entries as $key => $entry) : ?>
-			<div>
+			<div id="body">
 			<h2><a id="titlePost" href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/index/<?php echo $entry['id'] ?>"><?php echo $entry['title'] ?></a></h2>	
 			<p id="contentPost">
 				<?php echo $entry['content'] ?> 
 			</p>
+			<h2 id="date"> <?php echo $entry['create_date']?> </h2>
+
 			</div>
 		<?php endforeach; ?>
 		

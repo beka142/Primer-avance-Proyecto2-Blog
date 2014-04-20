@@ -1,0 +1,168 @@
+	
+
+	.image
+	{
+		float :right;
+		height: 80%; 
+		margin-top:2.5%;
+			
+
+	}	
+
+
+			h1 {
+				color:#FFFFFF;
+				font-size:17px;
+				float: none;
+				margin-top: 1.5%;
+				font-style:normal;
+				font-family: Verdana;
+				text-align: center;
+				
+
+			}
+
+			h2 {
+				color:#FFFFFF;
+				font-size:17px;
+				float: none;
+				font-style:normal;
+				font-family: Verdana;
+				text-align: center;
+				
+			}
+
+			.main{
+
+				height: 100%;
+				width: 100%;
+			}
+
+
+	
+
+			.footer {
+				background: #000066;
+				border-width:3px;
+				border-color:#99CC00;
+				height: 100px;
+				margin-top: 0%; 
+				color:#FFFFFF;
+				border-style: solid;
+
+			}
+
+
+	.body {
+				
+		border-width:6px;
+		border-color:#000066;
+		border-style: solid;
+		margin-top: 4px;
+		font-family: Verdana;
+		margin: 10px;
+		
+		background:#036;
+		background:-moz-linear-gradient(-45deg, #036 20%, #DFE 80%);
+		background:-webkit-gradient(linear, left top, right bottom, color-stop(20%,#036), color-stop(80%,#DFE));
+		background:-webkit-linear-gradient(-45deg, #036 20%,#DFE 80%);
+		background:-o-linear-gradient(-45deg, #036 20%,#DFE 80%);
+		background:-ms-linear-gradient(-45deg, #036 20%,#DFE 80%);
+		background:linear-gradient(135deg, #036 20%,#DFE 80%);
+		filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#036', endColorstr='#DFE',GradientType=1 )
+	}
+	
+
+
+			nav {
+				position: relative;
+				width: 100%;
+				float: left;
+				
+			}
+
+
+			nav ul {
+				margin-top: 2px;
+				width: 1500px;
+				list-style: none;
+			}
+
+
+			nav ul li {
+				margin-top: 2px;
+				float: left;
+			}
+
+			nav ul li a {
+				margin-top: 2px;
+				display: block;
+				width: 127px;
+				font-size: 20px;
+				line-height: 20px;
+				text-align: center;
+				text-decoration: none;
+				color: #777;
+			}
+
+			nav ul li a:hover {
+				color: #0066CC;
+				text-decoration: overline;
+			}
+
+			nav ul li.selected a {
+				color: #0066CC;
+
+			}
+
+	#links{
+		margin: auto;
+		width: 500px;
+		
+	}
+
+	ul, ol{
+		list-style: none;
+	}
+
+	.submenus li a{
+		text-decoration: none;
+		display: block;
+		padding: 2px 2px;
+		color:#FFFFFF;	
+
+	}
+
+	.submenus > li{
+		float: left;
+
+	}
+
+	.submenus li ul{
+		display: none;
+		position: absolute;
+		min-width: 40px;
+	}
+
+	.submenus li:hover > ul{
+		display: block;
+	}
+
+	.submenus li ul li{
+		position: relative;
+	}
+
+	.submenus li ul li ul{
+		right: -140px;
+		top: 0px;
+	}
+
+	#User{
+		margin-right: 17px;
+		margin-top: 7px;
+		border: 1px solid #D0D0D0;
+		border-color: black;
+		float: right;
+
+	}
+

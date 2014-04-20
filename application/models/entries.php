@@ -38,6 +38,20 @@ class Entries extends CI_Model {
            
     }
 
+
+    function insertPost($title, $contenido)
+    {    
+        date_default_timezone_set("America/Costa_Rica");
+        $fecha = date("Y").date("m").date("d");
+        $data = array(
+        'title' => $title,
+        'content' => $contenido,
+        'create_date' => $fecha,
+        );  
+         $this->db->insert('entries', $data);
+        
+    }
+
 }
 
 
