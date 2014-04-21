@@ -23,9 +23,34 @@ class Comments_controller extends CI_Controller {
 		$autor = $this->input->post("autor");
 		$comentario = $this->input->post("comentario");
         $this->comments_model->getComment($id,$autor,$comentario);
-        $this->load->view('message_comment');
-        
 
+        include("/Users/Betzy/Sites/Proyecto2ProWeb/CodeIgniter/Email/class.phpmailer.php"); 
+	    include("/Users/Betzy/Sites/Proyecto2ProWeb/CodeIgniter/Email/class.smtp.php"); 
+	    $mail = new PHPMailer(); 
+	    $mail->IsSMTP(); 
+	    $mail->SMTPAuth = true; 
+	    $mail->SMTPSecure = "ssl"; 
+	    $mail->Host = "smtp.gmail.com"; 
+	    $mail->Port = 465; 
+	    $mail->Username = "betzykarinachiroldesleon@gmail.com";
+	    $mail->Password = "beka2710442";
+
+	    $mail->From = "betzykarinachiroldesleon@gmail.com"; 
+	    $mail->FromName = "System"; 
+	    $mail->Subject = "Nuevo comentario"; 
+	    $mail->AltBody = "Este es un mensaje"; 
+	    $mail->MsgHTML("<b>Alguien ha comentado tu post número: ".$id." </b>"); 
+	    $mail->AddAttachment(""); 
+	    $mail->AddAttachment(""); 
+	    $mail->AddAddress("beka142@hotmail.com", "Administrador"); 
+	    $mail->IsHTML(true); 
+	    if(!$mail->Send()) { 
+	    $mensaje['mensaje'] = "Error: " . $mail->ErrorInfo; 
+	    } else { 
+	    $mensaje['mensaje'] = "Se ha enviado un Mensaje acerca de tú comentario al Administrador del Blog"; 
+	     }
+
+        $this->load->view('message_comment', $mensaje);
 
 	}
 
