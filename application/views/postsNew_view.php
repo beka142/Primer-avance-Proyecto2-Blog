@@ -3,52 +3,38 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/~Betzy/Proyecto2ProWeb/CodeIgniter/style/index.css">
-	<title>Welcome to my blog</title>
+	<title>My blog</title>
 
 	
 </head>
 <body id="header">
-	<button id="User">
-		<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/"> 
-			Inicio
+	<button id="Atras">
+		<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goGestionPosts/"> 
+			Atrás
 		</a> 
-	</button >
+	</button>
 
-<div id="container">
-	<h1 class="title">Welcome to <?php echo $blog_name; ?></h1>
+<div id="container" style="height: 800px;">
+	<h1 class="title"><?php echo $blog_name; ?></h1>
 	<div id="bodyComment" >
-			
-		<h1 id="titlePost"><?php echo $entries->title?></h1>
-		<p id="contentPost"><?php echo $entries->content?> <p/> 
-			
-		<div>
-			<?php foreach ($comments as $key => $comment) : ?>
-				<div id="body">
-				<h2 id="contentComment"><?php echo $comment['autor'] ?></h2>	
-				<p id="contentComment">
-					<?php echo $comment['body'] ?> 
-				</p>
-				</div>
-			<?php endforeach; ?>
-		</div>
 
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/comments_controller/index/<?php echo $id['id'] ?>" method="POST" name="post">
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/addPost/" method="POST" name="post">
 			<br/><br/>
-			<h1 class="colorwhite">Agregar comentario</h1>
+			<h1 class="colorwhite">Agregar nuevo Posts</h1>
 			
 			<div class="centerTable">
 				<TABLE class="tabletest">
 					<tr>
 						<TD class="bordertest">
-							Autor:
-							<input type="text" name="autor">
+							Título:
+							<input type="text" name="title">
 							<br/><br/>
 						</TD>
 					</tr>
 					<tr>
 						<TD class="bordertest">
-							Comentario:
-							<textarea type="textarea" name="comentario" rows="10" cols="50"></textarea>
+							Contenido:
+							<textarea type="textarea" name="content" rows="10" cols="50"></textarea>
 							<br/><br/>
 						</TD>
 					</tr>
@@ -59,7 +45,7 @@
 				<br/><br/>
 				<td>
 					<input type="reset" name="reset" value="Limpiar" />
-					<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Comentar'>
+					<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Postear'>
 				</td>
 			</div>
 

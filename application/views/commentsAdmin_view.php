@@ -14,7 +14,7 @@
 		</a> 
 	</button >
 
-<div id="container" style="height: 800px;">
+<div id="container">
 	<h1 class="title"><?php echo $blog_name; ?></h1>
 	<div>
 			

@@ -22,11 +22,24 @@ class Admin_controller extends CI_Controller {
 		$this->load->view('admin_view');
 	}
 
+	public function goGestionPosts()
+	{
+		$this->load->view('postsAdmin_view');
+	}
+
 	public function goPost()
 	{
 		$data['blog_name'] = 'My Blog';
 		$data['user'] = $this->entries->getUser();
-		$this->load->view('postsAdmin_view', $data);
+		$this->load->view('postsNew_view', $data);
+	}
+
+
+	public function goPostEdit()
+	{
+		$data['blog_name'] = 'Editar post';
+		$data['entries'] = $this->entries->getAll();
+		$this->load->view('postsEdit_view', $data);
 	}
 
 
@@ -67,10 +80,50 @@ class Admin_controller extends CI_Controller {
 	}
 
 
+	public function updateData()
+	{
+		$cedula = $this->input->post("cedula");
+		$nombre = $this->input->post("nombre");
+		$alias = $this->input->post("alias");
+		$contrasena = $this->input->post("contrasena");
+		$carrera = $this->input->post("carrera");
+		$direccion = $this->input->post("direccion");
+		$correo = $this->input->post("correo");
+		$this->entries->updateData($cedula,$nombre,$alias,$contrasena,$carrera,$direccion,$correo);
+		$this->load->view('message_perfil');   
+	}
+
+
+	public function updatePost($id)
+	{
+		$title = $this->input->post("title");
+		$contenido = $this->input->post("content");
+		$this->entries->updatePost($id,$title,$contenido);
+		$this->load->view('message_post');   
+	}
+
+
+	public function goPostDelete()
+	{
+		$data['blog_name'] = 'Eliminar post';
+		$data['entries'] = $this->entries->getAll();
+		$this->load->view('postsDelete_view', $data);
+	}
+
+	public function deletePost($id)
+	{
+		$this->entries->deletePost($id);
+        $data['blog_name'] = 'Eliminar post';
+		$data['entries'] = $this->entries->getAll();
+		$this->load->view('postsDelete_view', $data); 
+	}
+
+
 	public function error() 
 	{
 		echo "Error 404, try again later";
 	}
+
 }
 
 /* End of file welcome.php */

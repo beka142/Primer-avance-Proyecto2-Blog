@@ -52,6 +52,39 @@ class Entries extends CI_Model {
         
     }
 
+    function updateData($cedula,$nombre,$alias,$contrasena,$carrera,$direccion,$correo)
+    {         
+        $data = array(
+            'nombre' => $nombre,
+            'alias' => $alias,
+            'contraseña' => $contrasena,
+            'carrera' => $carrera,
+            'direccion' => $direccion,
+            'correo' => $correo,
+        );
+        $this->db->where('cedula', $cedula);
+        return $this->db->update('user', $data);
+           
+    }
+
+    function updatePost($id,$title,$contenido)
+    {         
+        $data = array(
+            'title' => $title,
+            'content' => $contenido,
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('entries', $data);
+           
+    }
+
+
+    function deletePost($id)
+    {         
+        $this->db->where('id',$id);
+        return $this->db->delete('entries');  
+    }
+
 }
 
 

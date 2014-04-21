@@ -28,6 +28,15 @@ class Post_controller extends CI_Controller {
 		$this->load->view('post_view', $data);
 	}
 
+
+	public function postEdit($id)
+	{
+		$data['blog_name'] = 'Edición de Post';
+		$data['id'] = $id;
+		$data['entries'] = $this->entries->getIdPost($id);
+		$this->load->view('postEdit_view', $data);
+	}
+
 	public function error() 
 	{
 		echo "Error 404, try again later";

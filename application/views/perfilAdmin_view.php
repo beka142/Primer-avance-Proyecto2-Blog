@@ -14,11 +14,11 @@
 		</a> 
 	</button >
 
-<div id="container" style="height: 900px;">
+<div id="container" style="height: 550px;">
 	<h1 class="title"><?php echo $blog_name; ?></h1>
 	<div>
 
-		<FORM action="" method="POST" name="post">
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/updateData/" method="POST" name="post">
 			<br/><br/>
 			
 			<div class="centerTable">
@@ -54,21 +54,21 @@
 					<tr>
 						<TD class="bordertest">
 							Carrera:
-							<input type="text" name="carrera" value="<?php echo $user->carrera?>">
+							<input class="largo" type="text" name="carrera" value="<?php echo $user->carrera?>">
 							<br/><br/>
 						</TD>
 					</tr>
 					<tr>
 						<TD class="bordertest">
 							Dirección:
-							<input type="text" name="direccion" value="<?php echo $user->direccion?>">
+							<input class="largo" type="text" name="direccion" value="<?php echo $user->direccion?>">
 							<br/><br/>
 						</TD>
 					</tr>
 					<tr>
 						<TD class="bordertest">
 							Correo:
-							<input type="text" name="correo" value="<?php echo $user->correo?>">
+							<input class="largo" type="text" name="correo" value="<?php echo $user->correo?>">
 							<br/><br/>
 						</TD>
 					</tr>

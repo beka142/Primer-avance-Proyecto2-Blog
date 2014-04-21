@@ -13,7 +13,7 @@
 		<img src="user.png">
 	</a> 
 </button >
-<div id="container" style="height: 800px;">
+<div id="container">
 	<h1 class="title">Welcome to <?php echo $blog_name; ?></h1>
 	<div>
 		<?php foreach ($entries as $key => $entry) : ?>

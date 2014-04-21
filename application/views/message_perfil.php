@@ -7,9 +7,9 @@
 	good
 
 	<script type="text/javascript"> 
-		if(confirm('Saved Succesfully, do you want to add another one?'))
+		if(confirm('Data Updated Succesfully, do you want to update again?'))
 		{
-			window.location.href = 'http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPost/';
+			window.location.href = 'http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPerfil/';
 		}
 		else
 		{
