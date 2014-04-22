@@ -18,9 +18,9 @@
 	<h1 class="title"><?php echo $blog_name; ?></h1>
 	<div id="bodyComment" >
 
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/addPost/" method="POST" name="post">
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/add/" method="POST" name="post">
 			<br/><br/>
-			<h1 class="colorwhite">Agregar nuevo Posts</h1>
+			<h1 class="colorwhite">Agregar nuevo Post</h1>
 			
 			<div class="centerTable">
 				<TABLE class="tabletest">

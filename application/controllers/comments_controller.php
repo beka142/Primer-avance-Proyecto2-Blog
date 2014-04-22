@@ -17,12 +17,12 @@ class Comments_controller extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index($id)
+	public function add($id)
 	{
 		$this->load->model('comments_model');
 		$autor = $this->input->post("autor");
 		$comentario = $this->input->post("comentario");
-        $this->comments_model->getComment($id,$autor,$comentario);
+        $this->comments_model->add($id,$autor,$comentario);
 
         include("/Users/Betzy/Sites/Proyecto2ProWeb/CodeIgniter/Email/class.phpmailer.php"); 
 	    include("/Users/Betzy/Sites/Proyecto2ProWeb/CodeIgniter/Email/class.smtp.php"); 
@@ -52,6 +52,41 @@ class Comments_controller extends CI_Controller {
 
         $this->load->view('message_comment', $mensaje);
 
+	}
+
+
+	public function show()
+	{
+		$this->load->model('user_model');
+		$data['user'] = $this->user_model->getUser();
+		$user=$data['user'];
+
+    	if ($user->estado=='Logeado') {	
+			$data['blog_name'] = 'Comentarios';
+			$this->load->model('comments_model');
+			$data['comments'] = $this->comments_model->getAll();
+			$this->load->view('commentsAdmin_view', $data);
+		}else {
+	        redirect('/admin_controller/goLogin/', 'refresh');
+	    }
+	}
+
+
+	public function activate($id)
+	{
+		$boton = $this->input->post("boton");
+		if($boton == 'Activar')
+		{
+			$boton = 'Activado';
+		}
+		else{
+			$boton = 'Desactivado';
+		}
+		$this->load->model('comments_model');
+        $this->comments_model->changeState($id, $boton); 
+        $data['blog_name'] = 'Comentarios';
+		$data['comments'] = $this->comments_model->getAll();
+		$this->load->view('commentsAdmin_view', $data);
 	}
 
 	public function error() 

@@ -213,3 +213,23 @@
 	}
 
 
+	#detalle{
+		margin: 0 15px 0 15px;
+		height: 60px;
+		width: 1130px;
+		border: 2px solid #D0D0D0;
+		border-color: #CC33FF;
+		font-size: 17px;
+		color:#FFFFFF;
+		text-align: center;
+	}
+
+	#bioUser{
+
+		margin: 0 15px 0 15px;
+		float: left;
+		height: 720px;
+		width: 925px;
+
+	}
+

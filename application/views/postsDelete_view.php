@@ -27,7 +27,7 @@
 						<?php echo $entry['content']?> 
 					</p>
 					
-					<FORM style="float: right;" action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller//deletePost/<?php echo $entry['id']?>" method="POST" name="post">
+					<FORM style="float: right;" action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/delete/<?php echo $entry['id']?>" method="POST" name="post">
 						<INPUT NAME='boton' TYPE='SUBMIT' VALUE='Eliminar'>
 							<br></br>
 					</FORM>

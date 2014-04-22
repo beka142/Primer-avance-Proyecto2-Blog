@@ -47,7 +47,7 @@
 					<tr>
 						<TD class="bordertest">
 							Contraseña:
-							<input type="text" name="contrasena" value="<?php echo $user->contraseña?>">
+							<input type="password" name="contrasena" value="<?php echo $user->contraseña?>">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -69,6 +69,13 @@
 						<TD class="bordertest">
 							Correo:
 							<input class="largo" type="text" name="correo" value="<?php echo $user->correo?>">
+							<br/><br/>
+						</TD>
+					</tr>
+					<tr>
+						<TD class="bordertest">
+							Red Social:
+							<input class="largo" type="text" name="redSocial" value="<?php echo $user->red_social?>">
 							<br/><br/>
 						</TD>
 					</tr>

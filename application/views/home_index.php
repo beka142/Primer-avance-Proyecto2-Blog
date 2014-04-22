@@ -9,18 +9,26 @@
 </head>
 <body id="header">
 <button id="User">
-	<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/user_controller/index/"> 
-		<img src="user.png">
+	<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goLogin/"> 
+		<img src="/~Betzy/Proyecto2ProWeb/CodeIgniter/user.png">
 	</a> 
 </button >
 <div id="container">
-	<h1 class="title">Welcome to <?php echo $blog_name; ?></h1>
-	<div>
+	<h1 class="title">Welcome to <?php echo $blog_name; echo $blog->nombre;?></h1>
+	<div id="detalle">
+		<p>
+			<?php echo $blog->detalle?> 
+		</p>
+	</div>
+	<br></br>
+	<div id="bioUser">
 		<?php foreach ($entries as $key => $entry) : ?>
 			<div id="body">
-			<h2><a id="titlePost" href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/index/<?php echo $entry['id'] ?>"><?php echo $entry['title'] ?></a></h2>	
+			<h2><a id="titlePost" href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/show/<?php echo $entry['id'] ?>"><?php echo $entry['title'] ?></a></h2>	
 			<p id="contentPost">
-				<?php echo $entry['content'] ?> 
+				<?php $continue = substr($entry['content'], 0, 100);  
+					echo $continue."...";
+				?> 
 			</p>
 			<h2 id="date"> <?php echo $entry['create_date']?> </h2>
 
@@ -35,15 +43,15 @@
 			
 			</div>
 			<div>
-				<img id="Image1_img" src="me.jpg">
+				<img id="Image1_img" src="/~Betzy/Proyecto2ProWeb/CodeIgniter/me.jpg">
 			</div>
 			<div id="Info">
 				<p><?php echo $user->carrera?></p>
 				<p><?php echo $user->direccion?></p>
 				<p><?php echo $user->correo?></p>
 				<button>
-					<a href="https://www.facebook.com/betzykarina.chiroldesleon" target ="_blank"> 
-						<img src="f.png">
+					<a href="<?php echo $user->red_social?>" target ="_blank"> 
+						<img src="/~Betzy/Proyecto2ProWeb/CodeIgniter/f.png">
 					</a> 
 				</button >
 				

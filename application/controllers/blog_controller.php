@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Blog_controller extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -17,19 +17,38 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
+	public function goGestionBlog()
 	{
-		$data['blog_name'] = 'The Blog';
-		$data['bio'] = 'The userss bio';
-		$data['entries'] = $this->entries->getAll();
-		$data['user'] = $this->entries->getUser();
-		$this->load->view('home_index', $data);
+		$this->load->model('user_model');
+		$data['user'] = $this->user_model->getUser();
+		$user=$data['user'];
+
+    	if ($user->estado=='Logeado') {	
+			$data['blog_name'] = 'My Blog';
+			$this->load->model('blog_model');
+			$data['blog'] = $this->blog_model->getAll();
+			$this->load->view('blogAdmin_view', $data);
+		}else {
+	        redirect('/admin_controller/goLogin/', 'refresh');
+	    }
 	}
+
+
+	public function updateData($id)
+	{
+		$nombre = $this->input->post("nombre");
+		$detalle = $this->input->post("detalle");
+		$this->load->model('blog_model');
+		$this->blog_model->updateData($id,$nombre,$detalle);
+		$this->load->view('message_blog');   
+	}
+
 
 	public function error() 
 	{
 		echo "Error 404, try again later";
 	}
+
 }
 
 /* End of file welcome.php */

@@ -22,61 +22,54 @@ class Admin_controller extends CI_Controller {
 		$this->load->view('admin_view');
 	}
 
+
+	public function goLogin()
+	{
+		$mensaje['mensaje']= '';
+		$this->load->view('user_view', $mensaje);
+	}
+
+
+	public function authenticate()
+	{
+		$mensaje['mensaje']= 'Error';
+		$alias = $this->input->post("alias");
+		$contrasena = $this->input->post("contrasena");
+		$this->load->model('user_model');
+		$data['user'] = $this->user_model->getUser();
+
+		$user=$data['user'];
+		$this->load->library('encrypt');
+		//$encrypted_string = $user
+		$plaintext_string = $this->encrypt->decode($user->contraseña);
+		
+		if(($contrasena==$plaintext_string)&&($alias==$user->alias))
+		{
+			$this->load->view('admin_view');
+			$this->user_model->updateState($alias);
+		}
+		else{
+			$this->load->view('user_view', $mensaje);
+		}
+	}
+
+
 	public function goGestionPosts()
 	{
-		$this->load->view('postsAdmin_view');
-	}
-
-	public function goPost()
-	{
-		$data['blog_name'] = 'My Blog';
-		$data['user'] = $this->entries->getUser();
-		$this->load->view('postsNew_view', $data);
-	}
-
-
-	public function goPostEdit()
-	{
-		$data['blog_name'] = 'Editar post';
-		$data['entries'] = $this->entries->getAll();
-		$this->load->view('postsEdit_view', $data);
-	}
-
-
-	public function goComments()
-	{
-		$data['blog_name'] = 'My Blog';
-		$this->load->model('comments_model');
-		$data['comments'] = $this->comments_model->getAllComments();
-		$this->load->view('commentsAdmin_view', $data);
-	}
-
-
-	public function addPost()
-	{
-		$title = $this->input->post("title");
-		$contenido = $this->input->post("content");
-        $this->entries->insertPost($title,$contenido);
-        $this->load->view('prueba');       
-
-	}
-
-
-	public function activeComments($id)
-	{
-		$this->load->model('comments_model');
-        $this->comments_model->changeState($id); 
-        $data['blog_name'] = 'My Blog';
-		$data['comments'] = $this->comments_model->getAllComments();
-		$this->load->view('commentsAdmin_view', $data);
+		if ($this->isLoguedIn()==true) {
+			$this->load->view('postsAdmin_view');
+		}
 	}
 
 
 	public function goPerfil()
 	{
-		$data['blog_name'] = 'Mi Perfil';
-		$data['user'] = $this->entries->getUser();
-		$this->load->view('perfilAdmin_view', $data);
+		if ($this->isLoguedIn()==true) {
+			$data['blog_name'] = 'Mi Perfil';
+			$this->load->model('user_model');
+			$data['user'] = $this->user_model->getUser();
+			$this->load->view('perfilAdmin_view', $data);
+		}
 	}
 
 
@@ -86,38 +79,38 @@ class Admin_controller extends CI_Controller {
 		$nombre = $this->input->post("nombre");
 		$alias = $this->input->post("alias");
 		$contrasena = $this->input->post("contrasena");
+		$this->load->library('encrypt');
+		$contrasena = $this->encrypt->encode($contrasena);
+
 		$carrera = $this->input->post("carrera");
 		$direccion = $this->input->post("direccion");
 		$correo = $this->input->post("correo");
-		$this->entries->updateData($cedula,$nombre,$alias,$contrasena,$carrera,$direccion,$correo);
+		$redSocial = $this->input->post("redSocial");
+		$this->load->model('user_model');
+		$this->user_model->updateData($cedula,$nombre,$alias,$contrasena,$carrera,$direccion,$correo,$redSocial);
 		$this->load->view('message_perfil');   
 	}
 
 
-	public function updatePost($id)
+	public function A()
 	{
-		$title = $this->input->post("title");
-		$contenido = $this->input->post("content");
-		$this->entries->updatePost($id,$title,$contenido);
-		$this->load->view('message_post');   
+		$this->load->model('user_model');
+		$this->user_model->close();
+		redirect('/post_controller/index','location', 301);
+		// redirect('/login/form/', 'refresh');
 	}
 
+	public function isLoguedIn() {
+		$this->load->model('user_model');
+		$data['user'] = $this->user_model->getUser();
+		$user=$data['user'];
 
-	public function goPostDelete()
-	{
-		$data['blog_name'] = 'Eliminar post';
-		$data['entries'] = $this->entries->getAll();
-		$this->load->view('postsDelete_view', $data);
+    	if ($user->estado=='Logeado') {
+        	return true;
+	    } else {
+	        redirect('/Admin_controller/goLogin/', 'refresh');
+	    }
 	}
-
-	public function deletePost($id)
-	{
-		$this->entries->deletePost($id);
-        $data['blog_name'] = 'Eliminar post';
-		$data['entries'] = $this->entries->getAll();
-		$this->load->view('postsDelete_view', $data); 
-	}
-
 
 	public function error() 
 	{

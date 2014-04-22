@@ -15,7 +15,7 @@
 	</button >
 
 <div id="container">
-	<h1 class="title">Welcome to <?php echo $blog_name; ?></h1>
+	<h1 class="title">Welcome to <?php echo $blog_name; echo $blog->nombre;?></h1>
 	<div id="bodyComment" >
 			
 		<h1 id="titlePost"><?php echo $entries->title?></h1>
@@ -32,7 +32,7 @@
 			<?php endforeach; ?>
 		</div>
 
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/comments_controller/index/<?php echo $id['id'] ?>" method="POST" name="post">
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/comments_controller/add/<?php echo $id['id'] ?>" method="POST" name="post">
 			<br/><br/>
 			<h1 class="colorwhite">Agregar comentario</h1>
 			

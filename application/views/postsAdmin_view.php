@@ -18,9 +18,9 @@
 		<div class="links"> 
 			<nav>
 				<ul class="submenus">
-					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPost/">Crear nuevo Posts</a></li>
-					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPostEdit/">Modificar Posts</a></li>
-					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPostDelete/">Eliminar Posts</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/nuevo/">Crear nuevo Posts</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/goPostEdit/">Modificar Posts</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/goPostDelete/">Eliminar Posts</a></li>
 				</ul>
 			</nav>
 		</div>	

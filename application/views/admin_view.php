@@ -11,7 +11,7 @@
 
 	<body>
 		<button id="User">
-			<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/"> 
+			<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/A"> 
 				Cerrar sesión
 			</a> 
 		</button >
@@ -19,9 +19,9 @@
 			<nav>
 				<ul class="submenus">
 					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goGestionPosts/">Gestión de Posts</a></li>
-					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goComments/">Gestión de Comentarios</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/comments_controller/show/">Gestión de Comentarios</a></li>
 					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/goPerfil/">Gestión de Perfil</a></li>
-					<li><a href="Services.html">Services</a></li>
+					<li><a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/blog_controller/goGestionBlog/">Gestión del Blog</a></li>
 				</ul>
 			</nav>
 		</div>	

@@ -12,8 +12,11 @@
 			</a> 
 		</button >
 
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/index/" method="POST" name="post">
-
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/authenticate/" method="POST" name="post">
+			<?php if($mensaje == 'Error'){
+				echo '<h1 class="colorwhite">'.$mensaje.' ... Contraseña y/o usuario(alias) incorrectos</h1>';
+			}
+			?>
 			
 			<br/><br/>
 			<h1 class="colorwhite">Formulario de ingreso Administrador</h1>
@@ -25,7 +28,7 @@
 					<tr>
 						<TD class="bordertest">
 							Nombre usuario:
-							<input type="text" name="nombre">
+							<input type="text" name="alias">
 							<br/><br/>
 						</TD>
 					</tr>

@@ -18,7 +18,7 @@
 		<div>
 			<?php foreach ($entries as $key => $entry) : ?>
 				<div id="body">
-				<h2><a id="titlePost" href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/postEdit/<?php echo $entry['id'] ?>"><?php echo $entry['title'] ?></a></h2>	
+				<h2><a id="titlePost" href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/edit/<?php echo $entry['id'] ?>"><?php echo $entry['title'] ?></a></h2>	
 				<p id="contentPost">
 					<?php echo $entry['content'] ?> 
 				</p>

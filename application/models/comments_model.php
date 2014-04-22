@@ -8,7 +8,7 @@ class Comments_model extends CI_Model {
      * @param account_id
      * @return subdomain name found
      */ 
-    function getComment($id_post, $autor, $comment)
+    function add($id_post, $autor, $comment)
     {    
         $data = array(
         'id_entrie' => $id_post,
@@ -22,38 +22,30 @@ class Comments_model extends CI_Model {
         
     }
 
+
     function getAll()
-    {       
-        
-        $query = $this->db->get('entries');
-        return $query->result_array();     
-    }
-
-    function getUser()
     {         
-        $query = $this->db->get('user');
-        return $query->row();
-           
-    }
-
-    function getAllComments()
-    {         
-        $sentencia = "SELECT * FROM comments WHERE estado = 'Desactivado'"; 
-        $query = $this->db->query("$sentencia");
+        $query = $this->db->get("comments");
         return $query->result_array();
            
     }
 
-    function changeState($id)
+    function changeState($id,$boton)
     {         
-        //$sentencia = "UPDATE comments SET estado='Activado' WHERE id = ".$id; 
-        //$query = $this->db->query("$sentencia");
-        //return $query->result_array();
         $data = array(
-            'estado' => 'Activado',
+            'estado' => $boton,
         );
         $this->db->where('id', $id);
-        return $this->db->update('comments', $data);
+        $this->db->update('comments', $data);
+           
+    }
+
+
+    function getAllActivate($id)
+    {         
+        $sentencia = "SELECT * FROM comments WHERE id_entrie = ".$id." and estado = 'Activado'"; 
+        $query = $this->db->query("$sentencia");
+        return $query->result_array();
            
     }
 }

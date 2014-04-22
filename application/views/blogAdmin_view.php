@@ -3,37 +3,37 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="/~Betzy/Proyecto2ProWeb/CodeIgniter/style/index.css">
-	<title>Editar post</title>
+	<title>My Blog</title>
 
 	
 </head>
 <body id="header">
 	<button id="Atras">
-		<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/goPostEdit/"> 
+		<a href="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/admin_controller/index/"> 
 			Atrás
 		</a> 
-	</button>
+	</button >
 
-<div id="container" style="height: 800px;">
+<div id="container" style="height: 550px;">
 	<h1 class="title"><?php echo $blog_name; ?></h1>
 	<div>
-			
-		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/post_controller/update/<?php echo $entries->id?>" method="POST" name="post">
+
+		<FORM action="http://localhost/~Betzy/Proyecto2ProWeb/CodeIgniter/index.php/blog_controller/updateData/<?php echo $blog->id?>" method="POST" name="post">
 			<br/><br/>
 			
 			<div class="centerTable">
 				<TABLE class="tabletest">
 					<tr>
 						<TD class="bordertest">
-							Título:
-							<input type="text" class="extend" name="title" value="<?php echo $entries->title?>">
+							Nombre:
+							<input class="largo" type="text" name="nombre" value="<?php echo $blog->nombre?>">
 							<br/><br/>
 						</TD>
 					</tr>
 					<tr>
 						<TD class="bordertest">
-							Contenido:
-							<input type="text" class="extend" name="content" value="<?php echo $entries->content?>">
+							Detalle:
+							<input class="extend" type="text" name="detalle" value="<?php echo $blog->detalle?>">
 							<br/><br/>
 						</TD>
 					</tr>
@@ -48,7 +48,6 @@
 			</div>
 
 		</FORM>
-		
 	</div>
 </div>
 
